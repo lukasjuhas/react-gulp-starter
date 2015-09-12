@@ -1,6 +1,5 @@
 {
   "name": "lukas-juhas",
-  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "browser-sync": "^2.8.1",
