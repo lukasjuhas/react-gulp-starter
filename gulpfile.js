@@ -3,12 +3,11 @@
 var gulp = require('gulp');
 var del = require('del');
 
-
-
 // Load plugins
 var $ = require('gulp-load-plugins')();
 var browserify = require('browserify');
 var watchify = require('watchify');
+var babelify = require('babelify');
 var source = require('vinyl-source-stream'),
 
     sourceFile = './app/scripts/app.js',
@@ -41,14 +40,19 @@ gulp.task('sass', function() {
 });
 
 
-
-var bundler = watchify(browserify({
+var bundler = browserify({
     entries: [sourceFile],
     debug: true,
     insertGlobals: true,
     cache: {},
     packageCache: {},
     fullPaths: true
+});
+
+bundler = watchify(bundler);
+
+bundler.transform(babelify.configure({
+  ignore: /(bower_components)|(node_modules)/
 }));
 
 bundler.on('update', rebundle);
@@ -100,12 +104,12 @@ gulp.task('images', function() {
 
 // Fonts
 gulp.task('fonts', function() {
-    
+
     return gulp.src(require('main-bower-files')({
             filter: '**/*.{eot,svg,ttf,woff,woff2}'
         }).concat('app/fonts/**/*'))
         .pipe(gulp.dest('dist/fonts'));
-    
+
 });
 
 // Clean
@@ -184,7 +188,7 @@ gulp.task('watch', ['html', 'fonts', 'bundle'], function() {
 
     gulp.watch(['app/styles/**/*.scss', 'app/styles/**/*.css'], ['styles', 'scripts', reload]);
 
-    
+
 
     // Watch image files
     gulp.watch('app/images/**/*', reload);
