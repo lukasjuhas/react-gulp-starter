@@ -1,1 +1,1 @@
-# React Gulp Starter Kit
+# React Gulp Starter

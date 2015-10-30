@@ -1,6 +1,4 @@
-node_modules
-bower_components
-.tmp
-.sass-cache
-npm-debug.log
-.DS_Store
+node_modules/
+dist/
+.sass-cache/
+bower_components/
