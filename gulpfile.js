@@ -6,8 +6,8 @@ var del = require('del');
 // Load plugins
 var $ = require('gulp-load-plugins')();
 var browserify = require('browserify');
+var babelify = require("babelify");
 var watchify = require('watchify');
-var babelify = require('babelify');
 var source = require('vinyl-source-stream'),
 
     sourceFile = './app/scripts/app.js',
@@ -39,21 +39,14 @@ gulp.task('sass', function() {
         .pipe($.size());
 });
 
-
-var bundler = browserify({
+var bundler = watchify(browserify({
     entries: [sourceFile],
     debug: true,
     insertGlobals: true,
     cache: {},
     packageCache: {},
     fullPaths: true
-});
-
-bundler = watchify(bundler);
-
-bundler.transform(babelify.configure({
-  ignore: /(bower_components)|(node_modules)/
-}));
+}).transform(babelify));
 
 bundler.on('update', rebundle);
 bundler.on('log', $.util.log);
