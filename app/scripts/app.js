@@ -1,7 +1,7 @@
-const React = window.React = require('react');
-const ReactDOM = require('react-dom');
-const mountNode = document.getElementById('app');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+const mountNode = document.getElementById('app');
 const Thing = require('./ui/Thing');
 
 class Testing extends React.Component {
