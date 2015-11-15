@@ -1,16 +1,26 @@
 # React Gulp Starter
 
-Development
+## Installing
+```sh
+git clone https://github.com/lukasjuhas/react-gulp-starter.git
+cd react-gulp-starter
+# install dependencies
+npm install
+# install packages
+bower install
+```
+
+## Development
 ```
 $ gulp watch
 ```
 
-Run Tests
+## Run Tests
 ```
 $ npm test
 ```
 
-Build
+## Build
 ```
 $ gulp build
 ```
