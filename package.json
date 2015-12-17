@@ -44,7 +44,6 @@
     "orchestrator": "^0.3.7",
     "react": "latest",
     "react-dom": "latest",
-    "react-tools": "latest",
     "reactify": "latest",
     "replace-ext": "0.0.1",
     "strip-debug": "^1.0.1",
