@@ -1,5 +1,7 @@
 # React Gulp Starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lukasjuhas/react-gulp-starter.svg)](https://greenkeeper.io/)
+
 ## Installing
 ```sh
 git clone https://github.com/lukasjuhas/react-gulp-starter.git
